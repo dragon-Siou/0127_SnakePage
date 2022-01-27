@@ -13,7 +13,7 @@
 
 <div class="flipbook-viewport">
 	<div class="container">
-		<div class="flipbook">
+		<div id="book" class="flipbook">
 			<div class="hard" style="background-image:url(pages/head.png)"></div>
 			<div style="background-image:url(pages/1.png)"></div>
 			<div style="background-image:url(pages/2.png)"></div>
@@ -56,7 +56,7 @@ function loadApp() {
 	// Create the flipbook
 
 
-
+/*
 	$('.flipbook').turn({
 			// Width
 
@@ -83,7 +83,10 @@ function loadApp() {
 		});
 
 
-/*
+		$("#book").addClass("pc-book");
+*/
+
+	//電腦	
 	if(check()){
 		$('.flipbook').turn({
 			// Width
@@ -109,16 +112,18 @@ function loadApp() {
 			//display: "single"
 
 		});
+
+		$("#book").addClass("pc-book");
 	}
 	else{
 		$('.flipbook').turn({
 			// Width
 
-			width:640,
+			width:960,
 			
 			// Height
 
-			height:960,
+			height:1400,
 
 			// Elevation
 
@@ -135,9 +140,11 @@ function loadApp() {
 			display: "single"
 
 		});
+
+		$("#book").addClass("phone-book");
 	}
 
-	*/
+	
 
 
 }

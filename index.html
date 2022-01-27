@@ -26,11 +26,37 @@
 
 <script type="text/javascript">
 
+function check() {
+
+	let userAgentInfo=navigator.userAgent;
+
+	let Agents =new Array("Android","iPhone","SymbianOS","Windows Phone","iPad","iPod");
+
+	let flag=true;
+
+	for(let v=0;v<Agents.length;v++) {
+
+		if(userAgentInfo.indexOf(Agents[v])>0) {
+
+			flag=false;
+
+			break;
+
+		}
+
+	}
+
+	return flag;
+
+}
+
+
 function loadApp() {
 
 	// Create the flipbook
 
-	$('.flipbook').turn({
+	if(check()){
+		$('.flipbook').turn({
 			// Width
 
 			width:922,
@@ -49,9 +75,42 @@ function loadApp() {
 			
 			// Auto center this flipbook
 
-			autoCenter: true
+			autoCenter: true,
 
-	});
+			//display: "single"
+
+		});
+	}
+	else{
+		$('.flipbook').turn({
+			// Width
+
+			width:640,
+			
+			// Height
+
+			height:960,
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true,
+
+			display: "single"
+
+		});
+	}
+
+	
+
+
 }
 
 // Load the HTML4 version if there's not CSS transform
